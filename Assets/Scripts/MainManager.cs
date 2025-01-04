@@ -22,8 +22,10 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //* When the game loaded main scene it reach and starts the GameManager methods.
         GameManager.instance.Start();
         GameManager.instance.UpdateScore();
+        GameManager.instance.LoadScoreBoard();
         
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
@@ -75,6 +77,7 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+        //* Provide last game score to the GameManager.
         GameManager.instance.SetPlayerScore(m_Points);
     }
 }
